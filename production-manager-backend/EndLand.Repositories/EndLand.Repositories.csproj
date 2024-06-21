@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EPPlus" Version="7.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EndLand.Core\EndLand.Core.csproj" />
+    <ProjectReference Include="..\EndLand.Data\EndLand.Data.csproj" />
+    <ProjectReference Include="..\EndLand.Transfer\EndLand.Transfer.csproj" />
+  </ItemGroup>
+
+</Project>
