@@ -1,0 +1,169 @@
+<div class="container">
+  <h1>Dodaj Projekt</h1>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>Podaj nazwę</mat-label>
+      <input
+        formControlName="name"
+        required
+        matInput
+        #iname
+        maxlength="100"
+        placeholder="Ex. Nougat"
+      />
+      <mat-hint align="end">{{ iname.value.length }}/100</mat-hint>
+      <mat-hint align="start">Litery</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Podaj przepływ wodomierza</mat-label>
+      <input
+        formControlName="waterMeterConstFlowRate"
+        required
+        step="0.01"
+        matInput
+        #i1
+        placeholder="Np. 2.014"
+      />
+      <mat-hint align="end">{{ i1.value.length }}/8</mat-hint>
+      <mat-hint align="start">Ułamki</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Podaj średnicę wodomierza</mat-label>
+      <input
+        type="number"
+        formControlName="waterMeterDiameter"
+        required
+        step="1"
+        matInput
+        #i2
+        maxlength="4"
+        placeholder="Np. 20"
+      />
+      <mat-hint align="end">{{ i2.value.length }}/4</mat-hint>
+      <mat-hint align="start">Cyfry</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Podaj próg wystąpienia alarmu wycieku wody</mat-label>
+      <input
+        type="number"
+        formControlName="waterLeakAlarmCounterThreshold"
+        required
+        step="1"
+        matInput
+        #i3
+        maxlength="4"
+        placeholder="Np. 20"
+      />
+      <mat-hint align="end">{{ i3.value.length }}/4</mat-hint>
+      <mat-hint align="start">Cyfry</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Podaj próg alarmowy wycieku wody</mat-label>
+      <input
+        type="number"
+        formControlName="waterLeakAlarmLowerThreshold"
+        required
+        step="1"
+        matInput
+        #i4
+        maxlength="4"
+        placeholder="Np. 20"
+      />
+      <mat-hint align="end">{{ i4.value.length }}/4</mat-hint>
+      <mat-hint align="start">Cyfry</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Podaj interwał sprawdzający alarm wycieku wody</mat-label>
+      <input
+        type="number"
+        formControlName="waterLeakAlarmInterval"
+        required
+        step="1"
+        matInput
+        #i5
+        maxlength="4"
+        placeholder="Np. 20"
+      />
+      <mat-hint align="end">{{ i5.value.length }}/4</mat-hint>
+      <mat-hint align="start">Cyfry</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Podaj próg wystąpień nagłej utraty wody</mat-label>
+      <input
+        type="number"
+        formControlName="suddenWaterLossAlarmCounterThreshold"
+        required
+        step="1"
+        matInput
+        #i6
+        maxlength="4"
+        placeholder="Np. 20"
+      />
+      <mat-hint align="end">{{ i6.value.length }}/4</mat-hint>
+      <mat-hint align="start">Cyfry</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Podaj próg alarmowy nagłej utraty wody</mat-label>
+      <input
+        type="number"
+        formControlName="suddenWaterLossAlarmLowerThreshold"
+        required
+        step="1"
+        matInput
+        #i7
+        maxlength="4"
+        placeholder="Np. 20"
+      />
+      <mat-hint align="end">{{ i7.value.length }}/4</mat-hint>
+      <mat-hint align="start">Cyfry</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Podaj interwał sprawdzający nagłą utratę wody</mat-label>
+      <input
+        type="number"
+        formControlName="suddenWaterLossAlarmInterval"
+        required
+        step="1"
+        matInput
+        #i8
+        maxlength="4"
+        placeholder="Np. 20"
+      />
+      <mat-hint align="end">{{ i8.value.length }}/4</mat-hint>
+      <mat-hint align="start">Cyfry</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Podaj zakres pomiarowy wodomierza</mat-label>
+      <input
+        type="number"
+        formControlName="waterMeterMeasuringRange"
+        required
+        step="1"
+        matInput
+        #i9
+        maxlength="4"
+        placeholder="Np. 20"
+      />
+      <mat-hint align="end">{{ i9.value.length }}/4</mat-hint>
+      <mat-hint align="start">Cyfry</mat-hint>
+    </mat-form-field>
+    <button type="submit" mat-stroked-button color="accen">Potwierdź</button>
+    <button
+      type="button"
+      mat-stroked-button
+      color="accen"
+      (click)="closeDialog()"
+    >
+      Cofnij
+    </button>
+  </form>
+</div>

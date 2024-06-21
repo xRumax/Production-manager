@@ -1,0 +1,84 @@
+<div class="mat-elevation-z8">
+  <div class="search-bar">
+    <mat-form-field>
+      <mat-label>Szukaj</mat-label>
+      <input
+        matInput
+        (keyup)="applyFilter($event)"
+        placeholder="Wpisz aby filtrować"
+      />
+    </mat-form-field>
+  </div>
+  <table
+    mat-table
+    class="full-width-table mat-table project-table"
+    matSort
+    aria-label="Elements"
+  >
+    <!-- Checkbox Column -->
+    <ng-container matColumnDef="checkbox">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox (change)="toggleAllCheckbox($event)"></mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <mat-checkbox
+          [checked]="row.checked"
+          (change)="toggleRowCheckbox($event, row)"
+        ></mat-checkbox>
+      </td>
+    </ng-container>
+
+    <!-- Other Columns -->
+    <ng-container *ngFor="let column of columns" [matColumnDef]="column.key">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="{{ column.key }}">
+        {{ column.header }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <!-- Add this anchor tag for navigation -->
+        <a [routerLink]="['/' + type, row.id]" class="link">
+          {{ getItemValue(row, column.key) }}
+        </a>
+      </td>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions" *ngIf="isProjectsRoute()">
+      <th mat-header-cell *matHeaderCellDef class="mat-header-cell">Akcje</th>
+      <td mat-cell *matCellDef="let row" class="mat-cell">
+        <button
+          *ngIf="type == 'project'"
+          mat-button
+          color="primary"
+          (click)="onUpdateClick(row)"
+        >
+          Aktualizuj
+        </button>
+        <button
+          *ngIf="type == 'project'"
+          mat-button
+          color="warn"
+          (click)="deleteRecord(row.id)"
+        >
+          Usuń
+        </button>
+      </td></ng-container
+    >
+
+    <tr mat-header-row *matHeaderRowDef="getDisplayedColumns()"></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: getDisplayedColumns()"
+      (click)="onRowClick(row)"
+    ></tr>
+  </table>
+
+  <mat-paginator
+    #paginator
+    [length]="data.data.length"
+    [pageIndex]="0"
+    [pageSize]="10"
+    [pageSizeOptions]="[5, 10, 20]"
+    aria-label="Select page"
+  >
+  </mat-paginator>
+</div>

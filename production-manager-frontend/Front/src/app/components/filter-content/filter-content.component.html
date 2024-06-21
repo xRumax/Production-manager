@@ -1,0 +1,49 @@
+<div class="filter-container">
+  <p class="filter-container__title">Nazwa projektu</p>
+  <!-- <input
+    class="filter-container__input"
+    type="text"
+    [(ngModel)]="projectName"
+    placeholder="Podaj frazę"
+  /> -->
+  <button
+    mat-button
+    class="filter-container__search-button"
+    type="button"
+    (click)="search()"
+  >
+    Szukaj
+  </button>
+  <div class="filter-container__info-box">
+    <div class="filter-container__info-box__table">
+      <table *ngIf="searchClicked">
+        <tr class="filter-container__info-box__table__row">
+          <th
+            class="filter-container__info-box__table__header"
+            *ngFor="let column of projectColumn"
+          >
+            {{ column.header }}
+          </th>
+        </tr>
+        <tr
+          class="filter-container__info-box__table__row"
+          *ngFor="let project of filteredProjects"
+        >
+          <td
+            class="filter-container__info-box__table__data"
+            *ngFor="let column of projectColumn"
+          >
+            {{ project[column.key] }}
+          </td>
+        </tr>
+      </table>
+    </div>
+    <button
+      mat-button
+      class="filter-container__info-box__cancel-button"
+      (click)="closeDialog()"
+    >
+      Cofnij
+    </button>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+.nav-bar {
+  background: linear-gradient(
+    to bottom,
+    rgb(74, 158, 67) 0%,
+    rgba(137, 190, 132, 0) 100%
+  );
+  width: 100%;
+  height: 80px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1000;
+}
+
+.nav-bar-links {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav-bar-links ul {
+  list-style: none;
+}
+
+.nav-bar-links ul li {
+  display: inline;
+  margin-right: 30px;
+}
+
+.nav-bar-links a {
+  color: white;
+  margin-right: 10px;
+  text-decoration: none;
+  font-size: 1.2em;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.nav-bar-links a:hover {
+  color: #0a2c53;
+}
+
+.nav-bar-links a.active {
+  color: #0a2c53;
+}

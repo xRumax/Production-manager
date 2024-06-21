@@ -1,0 +1,36 @@
+<button mat-button routerLink="/projects" class="btn-back">
+  <img src="assets/images/left-arrow.png" class="arrow" />Powrót
+</button>
+<div *ngIf="project" class="project-details-container">
+  <h2 class="project-details-title">Projekt {{ project.id }}</h2>
+  <div class="project-details-content">
+    <div class="label">Nazwa projektu:</div>
+    <div class="value">{{ project.name }}</div>
+    <div class="label">Przepływ wodomierza:</div>
+    <div class="value">{{ project.waterMeterConstFlowRate }}</div>
+    <div class="label">Średnica wodomierza:</div>
+    <div class="value">{{ project.waterMeterDiameter }}</div>
+    <div class="label">Alarm wycieku wody - próg licznika:</div>
+    <div class="value">{{ project.waterLeakAlarmCounterThreshold }}</div>
+    <div class="label">Alarm wycieku wody - niższy próg:</div>
+    <div class="value">{{ project.waterLeakAlarmLowerThreshold }}</div>
+    <div class="label">Alarm wycieku wody - interwał:</div>
+    <div class="value">{{ project.waterLeakAlarmInterval }}</div>
+    <div class="label">Alarm nagłej utraty wody - próg licznika:</div>
+    <div class="value">
+      {{ project.suddenWaterLossAlarmCounterThreshold }}
+    </div>
+    <div class="label">Alarm nagłej utraty wody - niższy próg:</div>
+    <div class="value">{{ project.suddenWaterLossAlarmLowerThreshold }}</div>
+    <div class="label">Alarm nagłej utraty wody - interwał:</div>
+    <div class="value">{{ project.suddenWaterLossAlarmInterval }}</div>
+    <div class="label">Zakres pomiarowy wodomierza:</div>
+    <div class="value">{{ project.waterMeterMeasuringRange }}</div>
+  </div>
+  <div class="btn-con">
+    <button mat-button class="btn-generate">Generuj Raport</button>
+    <button mat-button class="btn-update" (click)="onUpdateClick()">
+      Aktualizuj
+    </button>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+.full-width-table {
+  width: 100%;
+}
+.link {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+.search-bar {
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+mat-form-field {
+  width: 50%;
+}

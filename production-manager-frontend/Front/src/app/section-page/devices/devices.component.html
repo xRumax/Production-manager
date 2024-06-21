@@ -1,0 +1,17 @@
+<div class="project-container" *ngIf="dataLoaded">
+  <h1 class="header">URZĄDZENIA</h1>
+  <div class="main-container">
+    <mat-spinner *ngIf="!dataLoaded"></mat-spinner>
+    <app-table
+      [data]="dataSource"
+      [columns]="deviceColumn"
+      [type]="type"
+      (delete)="handleDelete($event)"
+    ></app-table>
+  </div>
+  <div class="project-btn-container">
+    <button mat-button class="project-btn-gen" (click)="generateRaport()">
+      Generuj raport
+    </button>
+  </div>
+</div>

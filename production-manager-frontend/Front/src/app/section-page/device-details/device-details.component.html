@@ -1,0 +1,31 @@
+<button mat-button routerLink="/devices" class="btn-back">
+  <img src="assets/images/left-arrow.png" class="arrow" />Powrót
+</button>
+<div *ngIf="device as deviceData" class="project-details-container">
+  <h2 class="project-details-title">Projekt {{ device.imei }}</h2>
+  <div class="project-details-content">
+    <div class="label">Nazwa projektu:</div>
+    <div class="value">{{ device.projectName }}</div>
+    <div class="label">Przepływ wodomierza:</div>
+    <div class="value">{{ device.orderNumber }}</div>
+    <div class="label">Średnica wodomierza:</div>
+    <div class="value">{{ device.ccid }}</div>
+    <div class="label">Alarm wycieku wody - próg licznika:</div>
+    <div class="value">{{ device.model }}</div>
+    <div class="label">Alarm wycieku wody - niższy próg:</div>
+    <div class="value">{{ device.serialNumber }}</div>
+    <div class="label">Alarm wycieku wody - interwał:</div>
+    <div class="value">{{ device.firmwareVersion }}</div>
+    <div class="label">Alarm nagłej utraty wody - próg licznika:</div>
+    <div class="value">
+      {{ device.esiThresholdChannel0 }}
+    </div>
+    <div class="label">Alarm nagłej utraty wody - niższy próg:</div>
+    <div class="value">{{ device.createdAt }}</div>
+    <div class="label">Alarm nagłej utraty wody - interwał:</div>
+    <div class="btn-con">
+      <button mat-button class="btn-generate">Generuj Raport</button>
+      <button mat-button class="btn-update">Aktualizuj</button>
+    </div>
+  </div>
+</div>

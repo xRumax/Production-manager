@@ -1,0 +1,65 @@
+<div class="muiContainer">
+  <h1>Dodaj Urządzenie</h1>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <mat-form-field>
+      <mat-label>Podaj IMEI</mat-label>
+      <input formControlName="IMEI" matInput #iname maxlength="100" placeholder="Ex. Nougat">
+      <mat-hint align="end">{{ iname.value.length }}/100</mat-hint>
+      <mat-hint align="start">Litery</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Podaj Nazwę Projektu</mat-label>
+      <input formControlName="ProjectName" step="0.01" matInput #i1 placeholder="Np. 2.014">
+      <mat-hint align="end">{{i1.value.length}}/?</mat-hint>
+      <mat-hint align="start">Liter</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Podaj Order Number</mat-label>
+      <input type="number" formControlName="OrderNumber" step="1" matInput #i2 maxlength="4" placeholder="Np. 20">
+      <mat-hint align="end">{{i2.value.length}}/?</mat-hint>
+      <mat-hint align="start">Cyfry</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Podaj CCID</mat-label>
+      <input type="number" formControlName="CCID" step="1" matInput #i3 maxlength="4" placeholder="Np. 20">
+      <mat-hint align="end">{{i3.value.length}}/?</mat-hint>
+      <mat-hint align="start">Cyfry</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Podaj Model</mat-label>
+      <input type="number" formControlName="Model" step="1" matInput #i4 maxlength="4" placeholder="Np. 20">
+      <mat-hint align="end">{{i4.value.length}}/?</mat-hint>
+      <mat-hint align="start">Cyfry</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Podaj Numer Seryjny</mat-label>
+      <input type="number" formControlName="SerialNumber" step="1" matInput #i5 maxlength="4" placeholder="Np. 20">
+      <mat-hint align="end">{{i5.value.length}}/?</mat-hint>
+      <mat-hint align="start">Cyfry</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Podaj Wersję oprogramowania</mat-label>
+      <input type="number" formControlName="FirmwareVersion" step="1" matInput #i6 maxlength="4" placeholder="Np. 20">
+      <mat-hint align="end">{{i6.value.length}}/?</mat-hint>
+      <mat-hint align="start">Cyfry</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Podaj ESI</mat-label>
+      <input type="number" formControlName="ESI" step="1" matInput #i7 maxlength="4" placeholder="Np. 20">
+      <mat-hint align="end">{{i7.value.length}}/?</mat-hint>
+      <mat-hint align="start">Cyfry</mat-hint>
+    </mat-form-field>
+    <button type="submit" mat-stroked-button color="accen" (click)="onSubmit()">Submit</button>
+    <button type="button" mat-stroked-button color="accen" (click)="closeDialog()">
+      Cofnij
+    </button>
+  </form>
+</div>
